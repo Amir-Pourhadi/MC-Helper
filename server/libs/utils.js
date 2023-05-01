@@ -18,7 +18,7 @@ function getRange(rank) {
 
 function formatMcs(mcs, isBatch = false) {
   if (isBatch) mcs = mcs.map(({ values }) => values).flat();
-  return mcs.filter((mc) => mc[1] && mc[1].length > 2).map(([badge, name, discord]) => ({ badge, name, discord }));
+  return mcs.filter(([badge, name]) => name && name.length > 2).map(([badge, name]) => `${badge} | ${name}`);
 }
 
 module.exports = { getMcs, getRange, formatMcs };
